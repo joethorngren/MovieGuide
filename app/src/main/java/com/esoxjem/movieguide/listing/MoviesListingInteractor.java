@@ -9,7 +9,6 @@ import io.reactivex.Observable;
 /**
  * @author arun
  */
-public interface MoviesListingInteractor
-{
+public interface MoviesListingInteractor {
     Observable<List<Movie>> fetchMovies();
 }

@@ -1,5 +1,4 @@
-<android.support.design.widget.CoordinatorLayout
-    android:id="@+id/main_content"
+<android.support.design.widget.CoordinatorLayout android:id="@+id/main_content"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -24,7 +23,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fitsSystemWindows="true"
-                android:scaleType="centerCrop"/>
+                android:scaleType="centerCrop" />
 
         </android.support.design.widget.CollapsingToolbarLayout>
 
@@ -51,7 +50,7 @@
                 android:layout_marginRight="16dp"
                 android:layout_marginTop="16dp"
                 android:textColor="@android:color/white"
-                android:textSize="32sp"/>
+                android:textSize="32sp" />
 
             <TextView
                 android:id="@+id/movie_year"
@@ -61,7 +60,7 @@
                 android:layout_marginRight="16dp"
                 android:fontFamily="sans-serif-light"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:textColor="@android:color/white"/>
+                android:textColor="@android:color/white" />
 
             <TextView
                 android:id="@+id/movie_rating"
@@ -71,7 +70,7 @@
                 android:layout_marginRight="16dp"
                 android:fontFamily="sans-serif-light"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:textColor="@android:color/white"/>
+                android:textColor="@android:color/white" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -81,7 +80,7 @@
                 android:layout_marginTop="16dp"
                 android:text="@string/summary"
                 android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                android:textColor="@android:color/white"/>
+                android:textColor="@android:color/white" />
 
             <TextView
                 android:id="@+id/movie_description"
@@ -91,13 +90,13 @@
                 android:fontFamily="sans-serif-light"
                 android:lineSpacingMultiplier="1.2"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="@android:color/white"/>
+                android:textColor="@android:color/white" />
 
             <include
                 layout="@layout/trailers_and_reviews"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"/>
+                android:layout_margin="16dp" />
         </LinearLayout>
 
 
@@ -114,6 +113,6 @@
         app:layout_anchor="@id/scrolling_container"
         app:layout_anchorGravity="bottom|right|end"
         app:pressedTranslationZ="12dp"
-        app:rippleColor="@android:color/white"/>
+        app:rippleColor="@android:color/white" />
 
 </android.support.design.widget.CoordinatorLayout>
