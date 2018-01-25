@@ -12,12 +12,12 @@ import io.reactivex.schedulers.Schedulers;
 /**
  * @author arun
  */
-class MoviesListingPresenterImpl implements MoviesListingPresenter {
+public class MoviesListingPresenterImpl implements MoviesListingPresenter {
     private MoviesListingView view;
     private MoviesListingInteractor moviesInteractor;
     private Disposable fetchSubscription;
 
-    MoviesListingPresenterImpl(MoviesListingInteractor interactor) {
+    public MoviesListingPresenterImpl(MoviesListingInteractor interactor) {
         moviesInteractor = interactor;
     }
 

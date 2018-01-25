@@ -13,11 +13,11 @@ import io.reactivex.Observable;
 /**
  * @author arun
  */
-class MovieDetailsInteractorImpl implements MovieDetailsInteractor {
+public class MovieDetailsInteractorImpl implements MovieDetailsInteractor {
 
     private TmdbWebService tmdbWebService;
 
-    MovieDetailsInteractorImpl(TmdbWebService tmdbWebService) {
+    public MovieDetailsInteractorImpl(TmdbWebService tmdbWebService) {
         this.tmdbWebService = tmdbWebService;
     }
 

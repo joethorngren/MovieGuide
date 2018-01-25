@@ -1,6 +1,6 @@
 package com.esoxjem.movieguide.favorites;
 
-import com.esoxjem.movieguide.AppModule;
+import com.esoxjem.movieguide.di.modules.AppModule;
 
 import javax.inject.Singleton;
 

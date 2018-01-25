@@ -2,12 +2,15 @@ package com.esoxjem.movieguide;
 
 import android.app.Application;
 
-import com.esoxjem.movieguide.details.DetailsComponent;
-import com.esoxjem.movieguide.details.DetailsModule;
+import com.esoxjem.movieguide.di.DaggerAppComponent;
+import com.esoxjem.movieguide.di.DetailsComponent;
+import com.esoxjem.movieguide.di.modules.DetailsModule;
+import com.esoxjem.movieguide.di.AppComponent;
+import com.esoxjem.movieguide.di.modules.AppModule;
 import com.esoxjem.movieguide.favorites.FavoritesModule;
-import com.esoxjem.movieguide.listing.ListingComponent;
-import com.esoxjem.movieguide.listing.ListingModule;
-import com.esoxjem.movieguide.network.NetworkModule;
+import com.esoxjem.movieguide.di.ListingComponent;
+import com.esoxjem.movieguide.di.modules.ListingModule;
+import com.esoxjem.movieguide.di.modules.NetworkModule;
 
 /**
  * @author arun

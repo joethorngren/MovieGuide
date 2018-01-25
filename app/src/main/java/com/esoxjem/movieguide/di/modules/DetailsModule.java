@@ -1,5 +1,10 @@
-package com.esoxjem.movieguide.details;
+package com.esoxjem.movieguide.di.modules;
 
+import com.esoxjem.movieguide.di.scopes.DetailsScope;
+import com.esoxjem.movieguide.details.MovieDetailsInteractor;
+import com.esoxjem.movieguide.details.MovieDetailsInteractorImpl;
+import com.esoxjem.movieguide.details.MovieDetailsPresenter;
+import com.esoxjem.movieguide.details.MovieDetailsPresenterImpl;
 import com.esoxjem.movieguide.favorites.FavoritesInteractor;
 import com.esoxjem.movieguide.network.TmdbWebService;
 

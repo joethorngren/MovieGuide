@@ -1,4 +1,4 @@
-package com.esoxjem.movieguide;
+package com.esoxjem.movieguide.di.modules;
 
 import android.app.Application;
 import android.content.Context;
@@ -17,7 +17,7 @@ import dagger.Provides;
 public class AppModule {
     private Context context;
 
-    AppModule(Application application) {
+    public AppModule(Application application) {
         context = application;
     }
 

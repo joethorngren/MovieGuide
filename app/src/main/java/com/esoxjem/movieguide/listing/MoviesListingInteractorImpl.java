@@ -14,12 +14,12 @@ import io.reactivex.Observable;
 /**
  * @author arun
  */
-class MoviesListingInteractorImpl implements MoviesListingInteractor {
+public class MoviesListingInteractorImpl implements MoviesListingInteractor {
     private FavoritesInteractor favoritesInteractor;
     private TmdbWebService tmdbWebService;
     private SortingOptionStore sortingOptionStore;
 
-    MoviesListingInteractorImpl(FavoritesInteractor favoritesInteractor,
+    public MoviesListingInteractorImpl(FavoritesInteractor favoritesInteractor,
                                 TmdbWebService tmdbWebService, SortingOptionStore store) {
         this.favoritesInteractor = favoritesInteractor;
         this.tmdbWebService = tmdbWebService;

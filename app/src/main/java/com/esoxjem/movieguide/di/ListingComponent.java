@@ -1,7 +1,10 @@
-package com.esoxjem.movieguide.listing;
+package com.esoxjem.movieguide.di;
 
+import com.esoxjem.movieguide.di.modules.ListingModule;
+import com.esoxjem.movieguide.di.scopes.ListingScope;
+import com.esoxjem.movieguide.listing.MoviesListingFragment;
 import com.esoxjem.movieguide.listing.sorting.SortingDialogFragment;
-import com.esoxjem.movieguide.listing.sorting.SortingModule;
+import com.esoxjem.movieguide.di.modules.SortingModule;
 
 import dagger.Subcomponent;
 

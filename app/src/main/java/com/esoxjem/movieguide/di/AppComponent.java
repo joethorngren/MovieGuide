@@ -1,11 +1,10 @@
-package com.esoxjem.movieguide;
+package com.esoxjem.movieguide.di;
 
-import com.esoxjem.movieguide.details.DetailsComponent;
-import com.esoxjem.movieguide.details.DetailsModule;
+import com.esoxjem.movieguide.di.modules.DetailsModule;
+import com.esoxjem.movieguide.di.modules.AppModule;
 import com.esoxjem.movieguide.favorites.FavoritesModule;
-import com.esoxjem.movieguide.listing.ListingComponent;
-import com.esoxjem.movieguide.listing.ListingModule;
-import com.esoxjem.movieguide.network.NetworkModule;
+import com.esoxjem.movieguide.di.modules.ListingModule;
+import com.esoxjem.movieguide.di.modules.NetworkModule;
 
 import javax.inject.Singleton;
 

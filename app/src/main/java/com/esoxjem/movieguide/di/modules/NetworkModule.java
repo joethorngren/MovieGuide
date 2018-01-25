@@ -1,7 +1,9 @@
-package com.esoxjem.movieguide.network;
+package com.esoxjem.movieguide.di.modules;
 
 
 import com.esoxjem.movieguide.BuildConfig;
+import com.esoxjem.movieguide.network.RequestInterceptor;
+import com.esoxjem.movieguide.network.TmdbWebService;
 
 import java.util.concurrent.TimeUnit;
 

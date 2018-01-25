@@ -1,4 +1,4 @@
-package com.esoxjem.movieguide.details;
+package com.esoxjem.movieguide.di.scopes;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

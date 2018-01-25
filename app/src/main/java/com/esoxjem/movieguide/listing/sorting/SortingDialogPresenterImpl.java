@@ -3,11 +3,11 @@ package com.esoxjem.movieguide.listing.sorting;
 /**
  * @author arun
  */
-class SortingDialogPresenterImpl implements SortingDialogPresenter {
+public class SortingDialogPresenterImpl implements SortingDialogPresenter {
     private SortingDialogView view;
     private SortingDialogInteractor sortingDialogInteractor;
 
-    SortingDialogPresenterImpl(SortingDialogInteractor interactor) {
+    public SortingDialogPresenterImpl(SortingDialogInteractor interactor) {
         sortingDialogInteractor = interactor;
     }
 

@@ -3,10 +3,10 @@ package com.esoxjem.movieguide.listing.sorting;
 /**
  * @author arun
  */
-class SortingDialogInteractorImpl implements SortingDialogInteractor {
+public class SortingDialogInteractorImpl implements SortingDialogInteractor {
     private SortingOptionStore sortingOptionStore;
 
-    SortingDialogInteractorImpl(SortingOptionStore store) {
+    public SortingDialogInteractorImpl(SortingOptionStore store) {
         sortingOptionStore = store;
     }
 
