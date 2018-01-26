@@ -12,12 +12,10 @@ import dagger.android.AndroidInjector
  * @author arunsasidharan
  */
 @Subcomponent(modules = arrayOf(ListingModule::class, SortingModule::class))
-interface ListingComponent : AndroidInjector<MoviesListingActivity> {
+interface ListingComponent {
 
     fun inject(fragment: MoviesListingFragment): MoviesListingFragment
 
     fun inject(fragment: SortingDialogFragment): SortingDialogFragment
 
-    @Subcomponent.Builder
-    abstract class Builder : AndroidInjector.Builder<MoviesListingActivity>()
 }

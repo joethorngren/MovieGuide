@@ -1,30 +1,22 @@
 package com.esoxjem.movieguide.listing;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 
-import com.esoxjem.movieguide.R;
 import com.esoxjem.movieguide.Constants;
+import com.esoxjem.movieguide.Movie;
+import com.esoxjem.movieguide.R;
 import com.esoxjem.movieguide.details.MovieDetailsActivity;
 import com.esoxjem.movieguide.details.MovieDetailsFragment;
-import com.esoxjem.movieguide.Movie;
-
-import javax.inject.Inject;
 
 import dagger.android.AndroidInjection;
-import dagger.android.AndroidInjector;
-import dagger.android.DispatchingAndroidInjector;
-import dagger.android.HasActivityInjector;
 
-public class MoviesListingActivity extends AppCompatActivity implements MoviesListingFragment.Callback, HasActivityInjector {
+public class MoviesListingActivity extends AppCompatActivity implements MoviesListingFragment.Callback {
     public static final String DETAILS_FRAGMENT = "DetailsFragment";
     private boolean twoPaneMode;
-    @Inject
-    DispatchingAndroidInjector<Activity> activityDispatchingAndroidInjector;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,10 +85,5 @@ public class MoviesListingActivity extends AppCompatActivity implements MoviesLi
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.movie_details_container, movieDetailsFragment, DETAILS_FRAGMENT)
                 .commit();
-    }
-
-    @Override
-    public AndroidInjector<Activity> activityInjector() {
-        return activityDispatchingAndroidInjector;
     }
 }
