@@ -1,7 +1,6 @@
 package com.esoxjem.movieguide.di.modules
 
 import android.app.Application
-import android.content.Context
 import android.content.res.Resources
 import com.esoxjem.movieguide.di.DetailsComponent
 import com.esoxjem.movieguide.di.ListingComponent
@@ -14,22 +13,22 @@ import javax.inject.Singleton
  * @author pulkitkumar
  */
 @Module(subcomponents = [ListingComponent::class, DetailsComponent::class])
-class AppModule(application: Application) {
-    private val context: Context
+class AppModule {
+//    private val context: Context
 
-    init {
-        context = application
-    }
+//    init {
+//        context = application
+//    }
+
+//    @Provides
+//    @Singleton
+//    fun provideContext(): Context {
+//        return context
+//    }
 
     @Provides
     @Singleton
-    fun provideContext(): Context {
-        return context
-    }
-
-    @Provides
-    @Singleton
-    fun provideResources(context: Context): Resources {
+    fun provideResources(context: Application): Resources {
         return context.resources
     }
 }

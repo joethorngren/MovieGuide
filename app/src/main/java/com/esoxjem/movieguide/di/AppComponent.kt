@@ -1,11 +1,13 @@
 package com.esoxjem.movieguide.di
 
+import android.app.Application
 import com.esoxjem.movieguide.BaseApplication
 import com.esoxjem.movieguide.di.modules.AppModule
 import com.esoxjem.movieguide.di.modules.DetailsModule
 import com.esoxjem.movieguide.di.modules.ListingModule
 import com.esoxjem.movieguide.di.modules.NetworkModule
 import com.esoxjem.movieguide.favorites.FavoritesModule
+import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
 import javax.inject.Singleton
@@ -21,11 +23,12 @@ interface AppComponent {
 
     fun plus(listingModule: ListingModule): ListingComponent
 
-//    @Component.Builder
-//    interface Builder {
-//        @BindsInstance fun application(application: Application): Builder
-//        fun build(): AppComponent
-//    }
+    @Component.Builder
+    interface Builder {
+        @BindsInstance
+        fun application(application: Application): Builder
+        fun build(): AppComponent
+    }
 
     fun inject(application: BaseApplication)
 }
