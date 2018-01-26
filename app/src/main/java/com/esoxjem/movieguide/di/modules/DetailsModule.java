@@ -17,6 +17,7 @@ import dagger.Provides;
  */
 @Module
 public class DetailsModule {
+
     @Provides
     @DetailsScope
     MovieDetailsInteractor provideInteractor(TmdbWebService tmdbWebService) {
@@ -29,4 +30,5 @@ public class DetailsModule {
                                            FavoritesInteractor favoritesInteractor) {
         return new MovieDetailsPresenterImpl(detailsInteractor, favoritesInteractor);
     }
+
 }

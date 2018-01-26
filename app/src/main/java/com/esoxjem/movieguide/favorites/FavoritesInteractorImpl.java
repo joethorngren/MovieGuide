@@ -9,10 +9,10 @@ import java.util.List;
 /**
  * @author arun
  */
-class FavoritesInteractorImpl implements FavoritesInteractor {
+public class FavoritesInteractorImpl implements FavoritesInteractor {
     private FavoritesStore favoritesStore;
 
-    FavoritesInteractorImpl(FavoritesStore store) {
+    public FavoritesInteractorImpl(FavoritesStore store) {
         favoritesStore = store;
     }
 

@@ -15,13 +15,15 @@ import dagger.Provides;
  */
 @Module
 public class SortingModule {
+
     @Provides
-    public SortingDialogInteractor providesSortingDialogInteractor(SortingOptionStore store) {
+    SortingDialogInteractor providesSortingDialogInteractor(SortingOptionStore store) {
         return new SortingDialogInteractorImpl(store);
     }
 
     @Provides
-    public SortingDialogPresenter providePresenter(SortingDialogInteractor interactor) {
+    SortingDialogPresenter providePresenter(SortingDialogInteractor interactor) {
         return new SortingDialogPresenterImpl(interactor);
     }
+
 }

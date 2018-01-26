@@ -1,6 +1,8 @@
-package com.esoxjem.movieguide.favorites;
+package com.esoxjem.movieguide.di.modules;
 
-import com.esoxjem.movieguide.di.modules.AppModule;
+import com.esoxjem.movieguide.favorites.FavoritesInteractor;
+import com.esoxjem.movieguide.favorites.FavoritesInteractorImpl;
+import com.esoxjem.movieguide.favorites.FavoritesStore;
 
 import javax.inject.Singleton;
 
@@ -12,6 +14,7 @@ import dagger.Provides;
  */
 @Module(includes = AppModule.class)
 public class FavoritesModule {
+
     @Provides
     @Singleton
     FavoritesInteractor provideFavouritesInteractor(FavoritesStore store) {

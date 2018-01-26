@@ -24,6 +24,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 @Module
 public class NetworkModule {
+
     public static final int CONNECT_TIMEOUT_IN_MS = 30000;
 
     @Provides

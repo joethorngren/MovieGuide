@@ -9,9 +9,11 @@ import javax.inject.Inject;
  * @author arun
  */
 public class SortingOptionStore {
-    private SharedPreferences pref;
+
     private static final String SELECTED_OPTION = "selectedOption";
     private static final String PREF_NAME = "SortingOptionStore";
+
+    private SharedPreferences pref;
 
     @Inject
     public SortingOptionStore(Context context) {
@@ -27,4 +29,5 @@ public class SortingOptionStore {
     public int getSelectedOption() {
         return pref.getInt(SELECTED_OPTION, 0);
     }
+
 }

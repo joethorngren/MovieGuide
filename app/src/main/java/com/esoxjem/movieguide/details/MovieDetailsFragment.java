@@ -41,8 +41,8 @@ import butterknife.OnClick;
 import butterknife.Unbinder;
 
 public class MovieDetailsFragment extends Fragment implements MovieDetailsView, View.OnClickListener {
-    @Inject
-    MovieDetailsPresenter movieDetailsPresenter;
+
+    @Inject MovieDetailsPresenter movieDetailsPresenter;
 
     @BindView(R.id.movie_poster)
     ImageView poster;
@@ -93,6 +93,7 @@ public class MovieDetailsFragment extends Fragment implements MovieDetailsView, 
         setRetainInstance(true);
         ((BaseApplication) getActivity().getApplication()).createDetailsComponent().inject(this);
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

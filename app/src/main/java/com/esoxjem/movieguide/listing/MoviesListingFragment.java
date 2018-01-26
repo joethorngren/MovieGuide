@@ -29,8 +29,8 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 public class MoviesListingFragment extends Fragment implements MoviesListingView {
-    @Inject
-    MoviesListingPresenter moviesPresenter;
+
+    @Inject MoviesListingPresenter moviesPresenter;
 
     @BindView(R.id.movies_listing)
     RecyclerView moviesListing;
@@ -55,7 +55,9 @@ public class MoviesListingFragment extends Fragment implements MoviesListingView
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
         setRetainInstance(true);
-        ((BaseApplication) getActivity().getApplication()).createListingComponent().inject(this);
+        ((BaseApplication) getActivity().getApplication())
+                .createListingComponent()
+                .inject(this);
     }
 
     @Override

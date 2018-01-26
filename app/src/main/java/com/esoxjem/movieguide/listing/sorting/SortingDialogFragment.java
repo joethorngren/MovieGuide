@@ -25,8 +25,8 @@ import butterknife.Unbinder;
  * @author arun
  */
 public class SortingDialogFragment extends DialogFragment implements SortingDialogView, RadioGroup.OnCheckedChangeListener {
-    @Inject
-    SortingDialogPresenter sortingDialogPresenter;
+
+    @Inject SortingDialogPresenter sortingDialogPresenter;
 
     @BindView(R.id.most_popular)
     RadioButton mostPopular;

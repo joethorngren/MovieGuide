@@ -23,7 +23,7 @@ public class RequestInterceptor implements Interceptor {
     public RequestInterceptor() {
     }
 
-    @Override
+        @Override
     public Response intercept(Chain chain) throws IOException {
         Request original = chain.request();
         HttpUrl originalHttpUrl = original.url();
