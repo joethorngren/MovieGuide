@@ -7,7 +7,6 @@ import com.esoxjem.movieguide.di.DetailsComponent;
 import com.esoxjem.movieguide.di.modules.DetailsModule;
 import com.esoxjem.movieguide.di.AppComponent;
 import com.esoxjem.movieguide.di.modules.AppModule;
-import com.esoxjem.movieguide.di.modules.FavoritesModule;
 import com.esoxjem.movieguide.di.ListingComponent;
 import com.esoxjem.movieguide.di.modules.ListingModule;
 import com.esoxjem.movieguide.di.modules.NetworkModule;
@@ -30,7 +29,6 @@ public class BaseApplication extends Application {
         return DaggerAppComponent.builder()
                 .appModule(new AppModule(this))
                 .networkModule(new NetworkModule())
-                .favoritesModule(new FavoritesModule())
                 .build();
     }
 

@@ -5,19 +5,16 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.esoxjem.movieguide.BaseApplication;
 import com.esoxjem.movieguide.Movie;
 import com.esoxjem.movieguide.R;
-import com.esoxjem.movieguide.listing.sorting.SortingDialogFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -72,21 +69,6 @@ public class MoviesListingFragment extends Fragment implements MoviesListingView
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         moviesPresenter.setView(this);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_sort:
-                displaySortingOptions();
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    private void displaySortingOptions() {
-        DialogFragment sortingDialogFragment = SortingDialogFragment.newInstance(moviesPresenter);
-        sortingDialogFragment.show(getFragmentManager(), "Select Quantity");
     }
 
     private void initLayoutReferences() {
