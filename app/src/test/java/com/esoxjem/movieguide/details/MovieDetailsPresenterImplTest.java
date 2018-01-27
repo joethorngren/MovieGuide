@@ -1,10 +1,7 @@
 package com.esoxjem.movieguide.details;
 
 import com.esoxjem.movieguide.Movie;
-import com.esoxjem.movieguide.Review;
 import com.esoxjem.movieguide.RxSchedulerRule;
-import com.esoxjem.movieguide.Video;
-import com.esoxjem.movieguide.favorites.FavoritesInteractor;
 
 import org.junit.After;
 import org.junit.Before;
@@ -16,7 +13,6 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.net.SocketTimeoutException;
-import java.util.Collections;
 import java.util.List;
 
 import io.reactivex.Observable;
@@ -37,8 +33,6 @@ public class MovieDetailsPresenterImplTest {
     @Mock
     private MovieDetailsInteractor movieDetailsInteractor;
     @Mock
-    private FavoritesInteractor favoritesInteractor;
-    @Mock
     List<Video> videos;
     @Mock
     Movie movie;
@@ -50,7 +44,7 @@ public class MovieDetailsPresenterImplTest {
     @Before
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
-        movieDetailsPresenter = new MovieDetailsPresenterImpl(movieDetailsInteractor, favoritesInteractor);
+        movieDetailsPresenter = new MovieDetailsPresenterImpl(movieDetailsInteractor);
         movieDetailsPresenter.setView(view);
     }
 
@@ -62,9 +56,6 @@ public class MovieDetailsPresenterImplTest {
     @Test
     public void shouldUnfavoriteIfFavoriteTapped() {
         when(movie.getId()).thenReturn("12345");
-        when(favoritesInteractor.isFavorite(movie.getId())).thenReturn(true);
-
-        movieDetailsPresenter.onFavoriteClick(movie);
 
         verify(view).showUnFavorited();
     }
@@ -72,9 +63,6 @@ public class MovieDetailsPresenterImplTest {
     @Test
     public void shouldFavoriteIfUnfavoriteTapped() {
         when(movie.getId()).thenReturn("12345");
-        when(favoritesInteractor.isFavorite(movie.getId())).thenReturn(false);
-
-        movieDetailsPresenter.onFavoriteClick(movie);
 
         verify(view).showFavorited();
     }
