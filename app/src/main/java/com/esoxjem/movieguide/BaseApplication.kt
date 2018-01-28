@@ -5,10 +5,8 @@ import com.esoxjem.movieguide.di.AppComponent
 import com.esoxjem.movieguide.di.DaggerAppComponent
 import com.esoxjem.movieguide.di.DetailsComponent
 import com.esoxjem.movieguide.di.ListingComponent
-import com.esoxjem.movieguide.di.modules.AppModule
 import com.esoxjem.movieguide.di.modules.DetailsModule
 import com.esoxjem.movieguide.di.modules.ListingModule
-import com.esoxjem.movieguide.di.modules.NetworkModule
 
 /**
  * @author arun
@@ -25,8 +23,7 @@ class BaseApplication : Application() {
 
     private fun createAppComponent(): AppComponent {
         return DaggerAppComponent.builder()
-                .appModule(AppModule(this))
-                .networkModule(NetworkModule())
+                .application(this)
                 .build()
     }
 
