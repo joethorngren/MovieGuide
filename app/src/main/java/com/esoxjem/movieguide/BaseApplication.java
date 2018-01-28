@@ -2,14 +2,12 @@ package com.esoxjem.movieguide;
 
 import android.app.Application;
 
+import com.esoxjem.movieguide.di.AppComponent;
 import com.esoxjem.movieguide.di.DaggerAppComponent;
 import com.esoxjem.movieguide.di.DetailsComponent;
-import com.esoxjem.movieguide.di.modules.DetailsModule;
-import com.esoxjem.movieguide.di.AppComponent;
-import com.esoxjem.movieguide.di.modules.AppModule;
 import com.esoxjem.movieguide.di.ListingComponent;
+import com.esoxjem.movieguide.di.modules.DetailsModule;
 import com.esoxjem.movieguide.di.modules.ListingModule;
-import com.esoxjem.movieguide.di.modules.NetworkModule;
 
 /**
  * @author arun
@@ -27,8 +25,7 @@ public class BaseApplication extends Application {
 
     private AppComponent createAppComponent() {
         return DaggerAppComponent.builder()
-                .appModule(new AppModule(this))
-                .networkModule(new NetworkModule())
+                .application(this)
                 .build();
     }
 
