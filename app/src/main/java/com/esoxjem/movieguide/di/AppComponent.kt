@@ -9,6 +9,7 @@ import javax.inject.Singleton
 
 
 import dagger.Component
+import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
 
 /**
@@ -17,11 +18,9 @@ import dagger.android.support.AndroidSupportInjectionModule
  */
 @Singleton
 @Component(modules = [AndroidSupportInjectionModule::class, AppModule::class, NetworkModule::class])
-interface AppComponent {
+interface AppComponent : AndroidInjector<BaseApplication> {
 
     fun plus(detailsModule: DetailsModule): DetailsComponent
 
     fun plus(listingModule: ListingModule): ListingComponent
-
-    fun inject(application: BaseApplication)
 }
