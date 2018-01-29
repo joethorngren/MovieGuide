@@ -12,6 +12,8 @@ import com.esoxjem.movieguide.details.MovieDetailsActivity;
 import com.esoxjem.movieguide.details.MovieDetailsFragment;
 import com.esoxjem.movieguide.Movie;
 
+import dagger.android.AndroidInjection;
+
 public class MoviesListingActivity extends AppCompatActivity implements MoviesListingFragment.Callback {
 
     public static final String DETAILS_FRAGMENT = "DetailsFragment";
@@ -20,6 +22,7 @@ public class MoviesListingActivity extends AppCompatActivity implements MoviesLi
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        AndroidInjection.inject(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setToolbar();
