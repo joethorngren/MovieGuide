@@ -48,12 +48,6 @@ public class MoviesListingActivity extends AppCompatActivity implements MoviesLi
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
     public void onMoviesLoaded(Movie movie) {
         if (twoPaneMode) {
             loadMovieFragment(movie);

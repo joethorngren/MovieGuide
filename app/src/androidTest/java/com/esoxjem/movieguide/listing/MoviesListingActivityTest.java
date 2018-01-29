@@ -29,7 +29,6 @@ public class MoviesListingActivityTest {
     @Test
     public void shouldBeAbleToLaunchMainScreen() {
         onView(withId(R.id.toolbar)).check(matches(isDisplayed()));
-        onView(withId(R.id.action_sort)).check(matches(isDisplayed()));
     }
 
     @Test
