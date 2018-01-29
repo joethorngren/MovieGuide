@@ -2,7 +2,6 @@ package com.esoxjem.movieguide.di.modules;
 
 import com.esoxjem.movieguide.details.MovieDetailsPresenter;
 import com.esoxjem.movieguide.details.MovieDetailsPresenterImpl;
-import com.esoxjem.movieguide.di.scopes.DetailsScope;
 
 import dagger.Module;
 import dagger.Provides;
@@ -15,7 +14,6 @@ import dagger.Provides;
 public class DetailsModule {
 
     @Provides
-    @DetailsScope
     MovieDetailsPresenter providePresenter() {
         return new MovieDetailsPresenterImpl();
     }

@@ -78,7 +78,7 @@ public class MoviesListingActivity extends AppCompatActivity implements MoviesLi
     }
 
     private void loadMovieFragment(Movie movie) {
-        MovieDetailsFragment movieDetailsFragment = MovieDetailsFragment.getInstance(movie);
+        MovieDetailsFragment movieDetailsFragment = MovieDetailsFragment.Companion.getInstance(movie);
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.movie_details_container, movieDetailsFragment, DETAILS_FRAGMENT)
                 .commit();

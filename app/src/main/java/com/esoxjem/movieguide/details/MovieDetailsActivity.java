@@ -20,7 +20,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
             if (extras != null && extras.containsKey(Constants.MOVIE)) {
                 Movie movie = extras.getParcelable(Constants.MOVIE);
                 if (movie != null) {
-                    MovieDetailsFragment movieDetailsFragment = MovieDetailsFragment.getInstance(movie);
+                    MovieDetailsFragment movieDetailsFragment = MovieDetailsFragment.Companion.getInstance(movie);
                     getSupportFragmentManager().beginTransaction().add(R.id.movie_details_container, movieDetailsFragment).commit();
                 }
             }
