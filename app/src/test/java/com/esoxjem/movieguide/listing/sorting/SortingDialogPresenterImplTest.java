@@ -17,6 +17,7 @@ import static org.mockito.Mockito.when;
  */
 @RunWith(MockitoJUnitRunner.class)
 public class SortingDialogPresenterImplTest {
+
     @Rule
     public RxSchedulerRule rule = new RxSchedulerRule();
     @Mock

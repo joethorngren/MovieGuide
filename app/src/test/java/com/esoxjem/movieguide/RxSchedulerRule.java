@@ -28,6 +28,7 @@ public class RxSchedulerRule implements TestRule {
     @Override
     public Statement apply(final Statement base, Description description) {
         return new Statement() {
+
             @Override
             public void evaluate() throws Throwable {
                 RxAndroidPlugins.reset();

@@ -23,6 +23,7 @@ import static org.mockito.Mockito.when;
  */
 @RunWith(MockitoJUnitRunner.class)
 public class MoviesListingPresenterImplTest {
+
     @Rule
     public RxSchedulerRule rule = new RxSchedulerRule();
     @Mock

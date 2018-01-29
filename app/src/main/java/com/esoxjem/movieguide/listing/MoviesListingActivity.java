@@ -13,7 +13,9 @@ import com.esoxjem.movieguide.details.MovieDetailsFragment;
 import com.esoxjem.movieguide.Movie;
 
 public class MoviesListingActivity extends AppCompatActivity implements MoviesListingFragment.Callback {
+
     public static final String DETAILS_FRAGMENT = "DetailsFragment";
+
     private boolean twoPaneMode;
 
     @Override
@@ -26,9 +28,9 @@ public class MoviesListingActivity extends AppCompatActivity implements MoviesLi
             twoPaneMode = true;
 
             if (savedInstanceState == null) {
-                getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.movie_details_container, new MovieDetailsFragment())
-                        .commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.movie_details_container,
+                                                                       new MovieDetailsFragment())
+                                           .commit();
             }
         } else {
             twoPaneMode = false;
@@ -36,7 +38,7 @@ public class MoviesListingActivity extends AppCompatActivity implements MoviesLi
     }
 
     private void setToolbar() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         if (getSupportActionBar() != null) {
@@ -80,7 +82,8 @@ public class MoviesListingActivity extends AppCompatActivity implements MoviesLi
     private void loadMovieFragment(Movie movie) {
         MovieDetailsFragment movieDetailsFragment = MovieDetailsFragment.getInstance(movie);
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.movie_details_container, movieDetailsFragment, DETAILS_FRAGMENT)
-                .commit();
+                                   .replace(R.id.movie_details_container, movieDetailsFragment,
+                                            DETAILS_FRAGMENT).commit();
     }
+
 }

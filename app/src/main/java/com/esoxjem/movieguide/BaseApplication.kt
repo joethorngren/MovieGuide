@@ -14,9 +14,10 @@ import com.esoxjem.movieguide.di.modules.NetworkModule
  * @author arun
  */
 class BaseApplication : Application() {
+
     private var appComponent: AppComponent? = null
     private var detailsComponent: DetailsComponent? = null
-    var listingComponent: ListingComponent? = null
+    private var listingComponent: ListingComponent? = null
 
     override fun onCreate() {
         super.onCreate()

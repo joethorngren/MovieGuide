@@ -10,6 +10,7 @@ import com.esoxjem.movieguide.Constants;
 import com.esoxjem.movieguide.Movie;
 
 public class MovieDetailsActivity extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,7 +22,10 @@ public class MovieDetailsActivity extends AppCompatActivity {
                 Movie movie = extras.getParcelable(Constants.MOVIE);
                 if (movie != null) {
                     MovieDetailsFragment movieDetailsFragment = MovieDetailsFragment.getInstance(movie);
-                    getSupportFragmentManager().beginTransaction().add(R.id.movie_details_container, movieDetailsFragment).commit();
+                    
+                    getSupportFragmentManager().beginTransaction()
+                                               .add(R.id.movie_details_container, movieDetailsFragment)
+                                               .commit();
                 }
             }
         }

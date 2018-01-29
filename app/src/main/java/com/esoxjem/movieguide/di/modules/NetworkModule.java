@@ -41,21 +41,16 @@ public class NetworkModule {
 
         return new okhttp3.OkHttpClient.Builder()
                 .connectTimeout(CONNECT_TIMEOUT_IN_MS, TimeUnit.MILLISECONDS)
-                .addInterceptor(loggingInterceptor)
-                .addInterceptor(requestInterceptor)
-                .build();
+                .addInterceptor(loggingInterceptor).addInterceptor(requestInterceptor).build();
     }
 
     @Singleton
     @Provides
     Retrofit retrofit(OkHttpClient okHttpClient) {
-        return new Retrofit
-                .Builder()
-                .baseUrl(BuildConfig.TMDB_BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .client(okHttpClient)
-                .build();
+        return new Retrofit.Builder().baseUrl(BuildConfig.TMDB_BASE_URL)
+                                     .addConverterFactory(GsonConverterFactory.create())
+                                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                                     .client(okHttpClient).build();
     }
 
     @Singleton

@@ -13,6 +13,7 @@ import io.reactivex.schedulers.Schedulers;
  * @author arun
  */
 public class MoviesListingPresenterImpl implements MoviesListingPresenter {
+
     private MoviesListingView view;
     private MoviesListingInteractor moviesInteractor;
     private Disposable fetchSubscription;
@@ -36,10 +37,10 @@ public class MoviesListingPresenterImpl implements MoviesListingPresenter {
     @Override
     public void displayMovies() {
         showLoading();
-        fetchSubscription = moviesInteractor.fetchMovies()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(this::onMovieFetchSuccess, this::onMovieFetchFailed);
+        fetchSubscription = moviesInteractor.fetchMovies().subscribeOn(Schedulers.io())
+                                            .observeOn(AndroidSchedulers.mainThread())
+                                            .subscribe(this::onMovieFetchSuccess,
+                                                       this::onMovieFetchFailed);
     }
 
     private void showLoading() {

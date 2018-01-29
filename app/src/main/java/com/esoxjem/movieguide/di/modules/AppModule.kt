@@ -13,6 +13,7 @@ import javax.inject.Singleton
  */
 @Module
 class AppModule(application: Application) {
+
     private val context: Context
 
     init {

@@ -10,8 +10,7 @@ import java.util.List;
 
 public class MoviesWraper {
 
-    @SerializedName("results")
-    private List<Movie> movies;
+    @SerializedName("results") private List<Movie> movies;
 
     public List<Movie> getMovieList() {
         return movies;

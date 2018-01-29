@@ -6,6 +6,7 @@ import com.esoxjem.movieguide.Movie;
  * @author arun
  */
 public class MovieDetailsPresenterImpl implements MovieDetailsPresenter {
+
     private MovieDetailsView view;
 
     public MovieDetailsPresenterImpl() {

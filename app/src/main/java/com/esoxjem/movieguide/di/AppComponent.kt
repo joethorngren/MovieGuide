@@ -4,8 +4,10 @@ import com.esoxjem.movieguide.di.modules.AppModule
 import com.esoxjem.movieguide.di.modules.DetailsModule
 import com.esoxjem.movieguide.di.modules.ListingModule
 import com.esoxjem.movieguide.di.modules.NetworkModule
-import dagger.Component
 import javax.inject.Singleton
+
+
+import dagger.Component
 
 /**
  * @author arunsasidharan
@@ -14,6 +16,7 @@ import javax.inject.Singleton
 @Singleton
 @Component(modules = [AppModule::class, NetworkModule::class])
 interface AppComponent {
+
     fun plus(detailsModule: DetailsModule): DetailsComponent
 
     fun plus(listingModule: ListingModule): ListingComponent

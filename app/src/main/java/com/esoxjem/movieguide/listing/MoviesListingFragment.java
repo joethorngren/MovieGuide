@@ -29,8 +29,7 @@ public class MoviesListingFragment extends Fragment implements MoviesListingView
 
     @Inject MoviesListingPresenter moviesPresenter;
 
-    @BindView(R.id.movies_listing)
-    RecyclerView moviesListing;
+    @BindView(R.id.movies_listing) RecyclerView moviesListing;
 
     private RecyclerView.Adapter adapter;
     private List<Movie> movies = new ArrayList<>(20);
@@ -129,6 +128,7 @@ public class MoviesListingFragment extends Fragment implements MoviesListingView
     }
 
     public interface Callback {
+
         void onMoviesLoaded(Movie movie);
 
         void onMovieClicked(Movie movie);
