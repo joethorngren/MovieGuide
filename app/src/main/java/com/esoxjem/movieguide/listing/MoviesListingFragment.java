@@ -52,9 +52,7 @@ public class MoviesListingFragment extends Fragment implements MoviesListingView
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
         setRetainInstance(true);
-        ((BaseApplication) getActivity().getApplication())
-                .createListingComponent()
-                .inject(this);
+        ((BaseApplication) getActivity().getApplication()).createListingComponent().inject(this);
     }
 
     @Override
