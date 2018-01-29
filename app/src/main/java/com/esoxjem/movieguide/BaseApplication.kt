@@ -3,7 +3,6 @@ package com.esoxjem.movieguide
 import android.app.Activity
 import android.app.Application
 import com.esoxjem.movieguide.di.AppComponent
-import com.esoxjem.movieguide.di.DaggerAppComponent
 import com.esoxjem.movieguide.di.DetailsComponent
 import com.esoxjem.movieguide.di.ListingComponent
 import com.esoxjem.movieguide.di.modules.AppModule
