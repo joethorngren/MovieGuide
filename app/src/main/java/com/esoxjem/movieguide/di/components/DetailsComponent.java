@@ -1,4 +1,4 @@
-package com.esoxjem.movieguide.di;
+package com.esoxjem.movieguide.di.components;
 
 import com.esoxjem.movieguide.details.MovieDetailsFragment;
 import com.esoxjem.movieguide.di.modules.DetailsModule;

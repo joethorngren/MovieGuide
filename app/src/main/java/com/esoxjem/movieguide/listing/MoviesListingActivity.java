@@ -11,12 +11,17 @@ import com.esoxjem.movieguide.Constants;
 import com.esoxjem.movieguide.details.MovieDetailsActivity;
 import com.esoxjem.movieguide.details.MovieDetailsFragment;
 import com.esoxjem.movieguide.Movie;
+import com.esoxjem.movieguide.util.Toaster;
+
+import javax.inject.Inject;
 
 import dagger.android.AndroidInjection;
 
 public class MoviesListingActivity extends AppCompatActivity implements MoviesListingFragment.Callback {
 
     public static final String DETAILS_FRAGMENT = "DetailsFragment";
+
+    @Inject Toaster toaster;
 
     private boolean twoPaneMode;
 
@@ -31,13 +36,15 @@ public class MoviesListingActivity extends AppCompatActivity implements MoviesLi
             twoPaneMode = true;
 
             if (savedInstanceState == null) {
-                getSupportFragmentManager().beginTransaction().replace(R.id.movie_details_container,
-                                                                       new MovieDetailsFragment())
+                getSupportFragmentManager().beginTransaction()
+                                           .replace(R.id.movie_details_container, new MovieDetailsFragment())
                                            .commit();
             }
         } else {
             twoPaneMode = false;
         }
+
+        toaster.makeToast("Hello!");
     }
 
     private void setToolbar() {

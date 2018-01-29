@@ -1,4 +1,4 @@
-package com.esoxjem.movieguide.di;
+package com.esoxjem.movieguide.di.components;
 
 import com.esoxjem.movieguide.di.modules.ListingModule;
 import com.esoxjem.movieguide.di.scopes.ListingScope;

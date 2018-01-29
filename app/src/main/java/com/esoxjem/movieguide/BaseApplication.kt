@@ -2,10 +2,10 @@ package com.esoxjem.movieguide
 
 import android.app.Activity
 import android.app.Application
-import com.esoxjem.movieguide.di.AppComponent
-import com.esoxjem.movieguide.di.DaggerAppComponent
-import com.esoxjem.movieguide.di.DetailsComponent
-import com.esoxjem.movieguide.di.ListingComponent
+import com.esoxjem.movieguide.di.components.AppComponent
+import com.esoxjem.movieguide.di.components.DaggerAppComponent
+import com.esoxjem.movieguide.di.components.DetailsComponent
+import com.esoxjem.movieguide.di.components.ListingComponent
 import com.esoxjem.movieguide.di.modules.AppModule
 import com.esoxjem.movieguide.di.modules.DetailsModule
 import com.esoxjem.movieguide.di.modules.ListingModule
