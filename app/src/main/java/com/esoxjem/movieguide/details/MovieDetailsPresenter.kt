@@ -11,5 +11,9 @@ interface MovieDetailsPresenter {
 
     fun setView(view: MovieDetailsView)
 
+    fun showFavoriteButton(movie: Movie?)
+
+    fun onFavoriteClick(movie: Movie?)
+
     fun destroy()
 }

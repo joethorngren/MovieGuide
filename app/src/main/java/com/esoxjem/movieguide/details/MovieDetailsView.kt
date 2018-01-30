@@ -8,4 +8,6 @@ import com.esoxjem.movieguide.Movie
 interface MovieDetailsView {
 
     fun showDetails(movie: Movie)
+    fun showFavorited()
+    fun showUnFavorited()
 }
