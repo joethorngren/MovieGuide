@@ -3,8 +3,9 @@ package com.esoxjem.movieguide
 import android.app.Activity
 import android.app.Application
 import com.esoxjem.movieguide.di.AppComponent
-import com.esoxjem.movieguide.di.DetailsComponent
-import com.esoxjem.movieguide.di.ListingComponent
+import com.esoxjem.movieguide.di.DaggerAppComponent
+import com.esoxjem.movieguide.di.MovieDetailsFragmentSubcomponent
+import com.esoxjem.movieguide.di.MoviesListingFragmentSubcomponent
 import com.esoxjem.movieguide.di.modules.AppModule
 import com.esoxjem.movieguide.di.modules.DetailsModule
 import com.esoxjem.movieguide.di.modules.ListingModule
@@ -22,8 +23,8 @@ class BaseApplication : Application(), HasActivityInjector {
     @Inject lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Activity>
 
     private lateinit var appComponent: AppComponent
-    private var detailsComponent: DetailsComponent? = null
-    private var listingComponent: ListingComponent? = null
+    private var movieDetailsFragmentSubcomponent: MovieDetailsFragmentSubcomponent? = null
+    private var moviesListingFragmentSubcomponent: MoviesListingFragmentSubcomponent? = null
 
     override fun onCreate() {
         super.onCreate()
@@ -32,25 +33,22 @@ class BaseApplication : Application(), HasActivityInjector {
     }
 
     private fun createAppComponent(): AppComponent {
-        return DaggerAppComponent.builder()
-                .appModule(AppModule(this))
-                .networkModule(NetworkModule())
-                .build()
+        return DaggerAppComponent.create()
     }
 
     override fun activityInjector(): AndroidInjector<Activity> {
         return dispatchingAndroidInjector
     }
 
-    fun createDetailsComponent(): DetailsComponent = appComponent.plus(DetailsModule())
+    fun createDetailsComponent(): MovieDetailsFragmentSubcomponent = appComponent.plus(DetailsModule())
 
     fun releaseDetailsComponent() {
-        detailsComponent = null
+        movieDetailsFragmentSubcomponent = null
     }
 
-    fun createListingComponent(): ListingComponent = appComponent.plus(ListingModule())
+    fun createListingComponent(): MoviesListingFragmentSubcomponent = appComponent.plus(ListingModule())
 
     fun releaseListingComponent() {
-        listingComponent = null
+        moviesListingFragmentSubcomponent = null
     }
 }

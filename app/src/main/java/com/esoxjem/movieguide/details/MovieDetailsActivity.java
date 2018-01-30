@@ -8,11 +8,19 @@ import android.view.MenuItem;
 import com.esoxjem.movieguide.R;
 import com.esoxjem.movieguide.Constants;
 import com.esoxjem.movieguide.Movie;
+import com.esoxjem.movieguide.listing.Toaster;
+
+import javax.inject.Inject;
+
+import dagger.android.AndroidInjection;
 
 public class MovieDetailsActivity extends AppCompatActivity {
 
+    @Inject Toaster toaster;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        AndroidInjection.inject(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_details);
 
@@ -29,6 +37,8 @@ public class MovieDetailsActivity extends AppCompatActivity {
                 }
             }
         }
+
+        toaster.makeToast();
     }
 
     @Override
