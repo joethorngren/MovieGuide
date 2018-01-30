@@ -7,11 +7,12 @@ import android.view.MenuItem
 import com.esoxjem.movieguide.Constants
 import com.esoxjem.movieguide.Movie
 import com.esoxjem.movieguide.R
+import dagger.android.AndroidInjection
 
 class MovieDetailsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        AndroidInjecton.inject(this)
+        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movie_details)
 

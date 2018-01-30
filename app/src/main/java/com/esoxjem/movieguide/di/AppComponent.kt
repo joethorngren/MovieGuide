@@ -2,10 +2,12 @@ package com.esoxjem.movieguide.di
 
 
 import com.esoxjem.movieguide.BaseApplication
-import com.esoxjem.movieguide.di.modules.*
+import com.esoxjem.movieguide.di.modules.ActivityBindingModule
+import com.esoxjem.movieguide.di.modules.AppModule
+import com.esoxjem.movieguide.di.modules.NetworkModule
 import dagger.Component
+import dagger.android.AndroidInjectionModule
 import dagger.android.AndroidInjector
-import dagger.android.support.AndroidSupportInjectionModule
 import javax.inject.Singleton
 
 /**
@@ -15,13 +17,11 @@ import javax.inject.Singleton
 @Singleton
 @Component(modules = [
     ActivityBindingModule::class,
-    AndroidSupportInjectionModule::class,
+    AndroidInjectionModule::class,
     AppModule::class,
     NetworkModule::class
 ])
 interface AppComponent : AndroidInjector<BaseApplication> {
 
-    fun plus(detailsModule: DetailsModule): DetailsComponent
-
-    fun plus(listingModule: ListingModule): ListingComponent
+    fun detailsComponentBuilder(): DetailsComponent.Builder
 }

@@ -13,4 +13,10 @@ import dagger.Subcomponent
 interface DetailsComponent {
 
     fun inject(target: MovieDetailsFragment)
+
+    @Subcomponent.Builder
+    interface Builder {
+        fun detailsModule(detailsModule: DetailsModule): Builder
+        fun build(): DetailsComponent
+    }
 }

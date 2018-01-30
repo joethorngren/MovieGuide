@@ -11,18 +11,14 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
-import com.esoxjem.movieguide.BaseApplication
-import com.esoxjem.movieguide.Movie
-import com.esoxjem.movieguide.R
-
-import java.util.ArrayList
-
-import javax.inject.Inject
-
 import butterknife.BindView
 import butterknife.ButterKnife
 import butterknife.Unbinder
+import com.esoxjem.movieguide.Movie
+import com.esoxjem.movieguide.R
+import dagger.android.support.AndroidSupportInjection
+import java.util.*
+import javax.inject.Inject
 
 class MoviesListingFragment : Fragment(), MoviesListingView {
 
@@ -37,6 +33,7 @@ class MoviesListingFragment : Fragment(), MoviesListingView {
     private var unbinder: Unbinder? = null
 
     override fun onAttach(context: Context?) {
+        AndroidSupportInjection.inject(this)
         super.onAttach(context)
         callback = context as Callback?
     }
@@ -45,7 +42,6 @@ class MoviesListingFragment : Fragment(), MoviesListingView {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
         retainInstance = true
-        (activity?.application as BaseApplication).createListingComponent().inject(this)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -105,11 +101,6 @@ class MoviesListingFragment : Fragment(), MoviesListingView {
     override fun onDetach() {
         callback = null
         super.onDetach()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        (activity?.application as BaseApplication).releaseListingComponent()
     }
 
     interface Callback {
