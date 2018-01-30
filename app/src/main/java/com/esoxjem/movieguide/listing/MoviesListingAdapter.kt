@@ -26,11 +26,11 @@ import butterknife.ButterKnife
 /**
  * @author arun
  */
-class MoviesListingAdapter(private val movies: List<Movie>, val view: MoviesListingView) : RecyclerView.Adapter<MoviesListingAdapter.ViewHolder>() {
+class MoviesListingAdapter(private val movies: List<Movie>, val moviesListingView: MoviesListingView) : RecyclerView.Adapter<MoviesListingAdapter.ViewHolder>() {
 
     private lateinit var context: Context
 
-    class ViewHolder(root: View) : RecyclerView.ViewHolder(root), View.OnClickListener {
+    inner class ViewHolder(root: View) : RecyclerView.ViewHolder(root), View.OnClickListener {
 
         @BindView(R.id.movie_poster)
         lateinit var poster: ImageView
@@ -46,7 +46,7 @@ class MoviesListingAdapter(private val movies: List<Movie>, val view: MoviesList
         }
 
         override fun onClick(view: View) {
-            this@MoviesListingAdapter.view.onMovieClicked(movie)
+            this@MoviesListingAdapter.moviesListingView.onMovieClicked(movie)
         }
     }
 

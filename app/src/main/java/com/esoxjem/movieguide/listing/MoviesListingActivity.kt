@@ -49,7 +49,7 @@ class MoviesListingActivity : AppCompatActivity(), MoviesListingFragment.Callbac
         if (twoPaneMode) {
             loadMovieFragment(movie)
         } else {
-            // Do not load in single pane view
+            // Do not load in single pane moviesListingView
         }
     }
 
