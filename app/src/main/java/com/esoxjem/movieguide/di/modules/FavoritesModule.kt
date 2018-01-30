@@ -1,6 +1,7 @@
 package com.esoxjem.movieguide.di.modules
 
 
+import com.esoxjem.movieguide.di.scopes.DetailsScope
 import com.esoxjem.movieguide.favorites.FavoritesInteractor
 import com.esoxjem.movieguide.favorites.FavoritesInteractorImpl
 import com.esoxjem.movieguide.favorites.FavoritesStore
@@ -13,11 +14,11 @@ import dagger.Provides
 /**
  * @author pulkitkumar
  */
-@Module(includes = [AppModule::class])
+@Module
 class FavoritesModule {
 
     @Provides
-    @Singleton
+    @DetailsScope
     fun provideFavoritesInteractor(store: FavoritesStore): FavoritesInteractor {
         return FavoritesInteractorImpl(store)
     }

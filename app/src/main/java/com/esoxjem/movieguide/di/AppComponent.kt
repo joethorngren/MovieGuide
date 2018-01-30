@@ -11,10 +11,10 @@ import dagger.Component
  * @author pulkitkumar
  */
 @Singleton
-@Component(modules = [AppModule::class, NetworkModule::class, FavoritesModule::class])
+@Component(modules = [AppModule::class, NetworkModule::class])
 interface AppComponent {
 
-    fun plus(detailsModule: DetailsModule): DetailsComponent
+    fun plus(movieDetailsModule: MovieDetailsModule): MovieDetailsFragmentSubcomponent
 
-    fun plus(listingModule: ListingModule): ListingComponent
+    fun plus(moviesListingModule: MoviesListingModule): MoviesListingFragmentSubcomponent
 }

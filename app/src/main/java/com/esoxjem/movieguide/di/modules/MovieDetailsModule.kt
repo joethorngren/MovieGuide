@@ -13,7 +13,7 @@ import dagger.Provides
  * @author arunsasidharan
  */
 @Module
-class DetailsModule {
+class MovieDetailsModule {
 
     @Provides
     @DetailsScope

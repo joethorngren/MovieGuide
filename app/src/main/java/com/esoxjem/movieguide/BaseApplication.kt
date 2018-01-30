@@ -3,11 +3,11 @@ package com.esoxjem.movieguide
 import android.app.Application
 import com.esoxjem.movieguide.di.AppComponent
 import com.esoxjem.movieguide.di.DaggerAppComponent
-import com.esoxjem.movieguide.di.DetailsComponent
-import com.esoxjem.movieguide.di.ListingComponent
+import com.esoxjem.movieguide.di.MovieDetailsFragmentSubcomponent
+import com.esoxjem.movieguide.di.MoviesListingFragmentSubcomponent
 import com.esoxjem.movieguide.di.modules.AppModule
-import com.esoxjem.movieguide.di.modules.DetailsModule
-import com.esoxjem.movieguide.di.modules.ListingModule
+import com.esoxjem.movieguide.di.modules.MovieDetailsModule
+import com.esoxjem.movieguide.di.modules.MoviesListingModule
 import com.esoxjem.movieguide.di.modules.NetworkModule
 
 /**
@@ -16,8 +16,8 @@ import com.esoxjem.movieguide.di.modules.NetworkModule
 class BaseApplication : Application() {
 
     private var appComponent: AppComponent? = null
-    private var detailsComponent: DetailsComponent? = null
-    private var listingComponent: ListingComponent? = null
+    private var movieDetailsFragmentSubcomponent: MovieDetailsFragmentSubcomponent? = null
+    private var moviesListingFragmentSubcomponent: MoviesListingFragmentSubcomponent? = null
 
     override fun onCreate() {
         super.onCreate()
@@ -31,15 +31,17 @@ class BaseApplication : Application() {
                 .build()
     }
 
-    fun createDetailsComponent(): DetailsComponent = appComponent!!.plus(DetailsModule())
+    fun createDetailsComponent(): MovieDetailsFragmentSubcomponent = appComponent!!.plus(
+        MovieDetailsModule())
 
     fun releaseDetailsComponent() {
-        detailsComponent = null
+        movieDetailsFragmentSubcomponent = null
     }
 
-    fun createListingComponent(): ListingComponent = appComponent!!.plus(ListingModule())
+    fun createListingComponent(): MoviesListingFragmentSubcomponent = appComponent!!.plus(
+        MoviesListingModule())
 
     fun releaseListingComponent() {
-        listingComponent = null
+        moviesListingFragmentSubcomponent = null
     }
 }

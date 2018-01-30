@@ -14,7 +14,7 @@ import dagger.Provides
  * @author arunsasidharan
  */
 @Module
-class ListingModule {
+class MoviesListingModule {
 
     @Provides
     fun provideMovieListingInteractor(tmdbWebService: TmdbWebService): MoviesListingInteractor {
