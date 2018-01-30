@@ -14,8 +14,8 @@ import javax.inject.Singleton
  */
 @Singleton
 @Component(modules = [
-    AndroidSupportInjectionModule::class,
     ActivityBindingModule::class,
+    AndroidSupportInjectionModule::class,
     AppModule::class,
     NetworkModule::class
 ])
@@ -24,8 +24,4 @@ interface AppComponent : AndroidInjector<BaseApplication> {
     fun plus(detailsModule: DetailsModule): DetailsComponent
 
     fun plus(listingModule: ListingModule): ListingComponent
-
-    fun detailBuilder(): DetailsComponent.Builder
-
-    fun listingBuilder(): ListingComponent.Builder
 }
