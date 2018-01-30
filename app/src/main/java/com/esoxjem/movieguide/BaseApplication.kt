@@ -30,12 +30,12 @@ class BaseApplication : Application(), HasActivityInjector {
         appComponent.inject(this)
     }
 
-    override fun activityInjector(): AndroidInjector<Activity> {
-        return dispatchingActivityInjector
-    }
-
     private fun createAppComponent(): AppComponent {
         return DaggerAppComponent.builder().build()
+    }
+
+    override fun activityInjector(): AndroidInjector<Activity> {
+        return dispatchingActivityInjector
     }
 
     fun createDetailsComponent(): DetailsComponent = appComponent.plus(DetailsModule())
