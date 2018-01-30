@@ -1,7 +1,5 @@
 package com.esoxjem.movieguide
 
-import android.app.Activity
-import android.app.Application
 import com.esoxjem.movieguide.di.AppComponent
 import com.esoxjem.movieguide.di.DaggerAppComponent
 import com.esoxjem.movieguide.di.DetailsComponent
@@ -9,16 +7,12 @@ import com.esoxjem.movieguide.di.ListingComponent
 import com.esoxjem.movieguide.di.modules.DetailsModule
 import com.esoxjem.movieguide.di.modules.ListingModule
 import dagger.android.AndroidInjector
-import dagger.android.DispatchingAndroidInjector
-import dagger.android.HasActivityInjector
-import javax.inject.Inject
+import dagger.android.DaggerApplication
 
 /**
  * @author arun
  */
-class BaseApplication : Application(), HasActivityInjector {
-
-    @Inject lateinit var dispatchingActivityInjector: DispatchingAndroidInjector<Activity>
+class BaseApplication : DaggerApplication() {
 
     private lateinit var appComponent: AppComponent
     private var detailsComponent: DetailsComponent? = null
@@ -26,16 +20,13 @@ class BaseApplication : Application(), HasActivityInjector {
 
     override fun onCreate() {
         super.onCreate()
-        appComponent = createAppComponent()
-        appComponent.inject(this)
+        applicationInjector()
     }
 
-    override fun activityInjector(): AndroidInjector<Activity> {
-        return dispatchingActivityInjector
-    }
+    override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
+        appComponent = DaggerAppComponent.builder().build()
 
-    private fun createAppComponent(): AppComponent {
-        return DaggerAppComponent.builder().build()
+        return appComponent
     }
 
     fun createDetailsComponent(): DetailsComponent = appComponent.plus(DetailsModule())
