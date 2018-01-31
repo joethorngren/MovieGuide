@@ -1,15 +1,11 @@
 package com.esoxjem.movieguide.di.modules
 
-import android.app.Activity
 import com.esoxjem.movieguide.details.MovieDetailsActivity
 import com.esoxjem.movieguide.di.MovieDetailsActivitySubcomponent
 import com.esoxjem.movieguide.di.MoviesListingActivitySubcomponent
 import com.esoxjem.movieguide.listing.MoviesListingActivity
-import dagger.Binds
 import dagger.Module
-import dagger.android.ActivityKey
-import dagger.android.AndroidInjector
-import dagger.multibindings.IntoMap
+import dagger.android.ContributesAndroidInjector
 
 @Module(subcomponents = [
     MovieDetailsActivitySubcomponent::class,
@@ -17,13 +13,9 @@ import dagger.multibindings.IntoMap
 ])
 abstract class ActivityBindingModule {
 
-    @Binds
-    @IntoMap
-    @ActivityKey(MoviesListingActivity::class)
-    abstract fun bindMoviesListingActivityInjectorFactory(builder: MoviesListingActivitySubcomponent.Builder): AndroidInjector.Factory<out Activity>
+    @ContributesAndroidInjector
+    abstract fun bindMoviesListingActivity(): MoviesListingActivity
 
-    @Binds
-    @IntoMap
-    @ActivityKey(MovieDetailsActivity::class)
-    abstract fun bindMovieDetailsActivityInjectorFactory(builder: MovieDetailsActivitySubcomponent.Builder): AndroidInjector.Factory<out Activity>
+    @ContributesAndroidInjector
+    abstract fun bindMovieDetailsActivity(): MovieDetailsActivity
 }
