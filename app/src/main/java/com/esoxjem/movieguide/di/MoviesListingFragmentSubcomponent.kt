@@ -15,4 +15,9 @@ interface MoviesListingFragmentSubcomponent {
 
     fun inject(fragment: MoviesListingFragment): MoviesListingFragment
 
+    @Subcomponent.Builder
+    interface Builder {
+        fun moviesListingModule(moviesListingModule: MoviesListingModule): Builder
+        fun build(): MoviesListingFragmentSubcomponent
+    }
 }

@@ -3,6 +3,7 @@ package com.esoxjem.movieguide.details
 
 import android.os.Bundle
 import android.support.design.widget.CollapsingToolbarLayout
+import android.support.design.widget.FloatingActionButton
 import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
@@ -12,21 +13,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-
-import com.bumptech.glide.Glide
-import com.esoxjem.movieguide.Api
-import com.esoxjem.movieguide.BaseApplication
-import com.esoxjem.movieguide.Constants
-import com.esoxjem.movieguide.Movie
-import com.esoxjem.movieguide.R
-
-import javax.inject.Inject
-
 import butterknife.BindView
 import butterknife.ButterKnife
-import butterknife.Unbinder
 import butterknife.OnClick
-import android.support.design.widget.FloatingActionButton
+import butterknife.Unbinder
+import com.bumptech.glide.Glide
+import com.esoxjem.movieguide.*
+import com.esoxjem.movieguide.di.modules.FavoritesModule
+import com.esoxjem.movieguide.di.modules.MovieDetailsModule
+import javax.inject.Inject
 
 
 class MovieDetailsFragment : Fragment(), MovieDetailsView {
@@ -57,7 +52,12 @@ class MovieDetailsFragment : Fragment(), MovieDetailsView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         retainInstance = true
-        (activity?.application as BaseApplication).createDetailsComponent().inject(this)
+        (activity?.application as BaseApplication).appComponent
+                .movieDetailsFragmentSubcomponentBuilder()
+                .favoritesModule(FavoritesModule())
+                .movieDetailsModule(MovieDetailsModule())
+                .build()
+                .inject(this)
     }
 
 
@@ -133,11 +133,6 @@ class MovieDetailsFragment : Fragment(), MovieDetailsView {
         super.onDestroyView()
         movieDetailsPresenter.destroy()
         unbinder?.unbind()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        (activity?.application as BaseApplication).releaseDetailsComponent()
     }
 
     companion object {
