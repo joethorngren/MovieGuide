@@ -1,6 +1,7 @@
 package com.esoxjem.movieguide.details
 
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.support.v4.app.NavUtils
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
@@ -8,8 +9,14 @@ import com.esoxjem.movieguide.Constants
 import com.esoxjem.movieguide.Movie
 import com.esoxjem.movieguide.R
 import dagger.android.AndroidInjection
+import dagger.android.AndroidInjector
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.support.HasSupportFragmentInjector
+import javax.inject.Inject
 
-class MovieDetailsActivity : AppCompatActivity() {
+class MovieDetailsActivity : AppCompatActivity(), HasSupportFragmentInjector {
+
+    @Inject lateinit var dispatchingFragmentInjector: DispatchingAndroidInjector<Fragment>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
@@ -29,6 +36,10 @@ class MovieDetailsActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    override fun supportFragmentInjector(): AndroidInjector<Fragment> {
+        return dispatchingFragmentInjector
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

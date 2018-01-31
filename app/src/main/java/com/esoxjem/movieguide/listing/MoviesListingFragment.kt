@@ -14,10 +14,9 @@ import android.view.ViewGroup
 import butterknife.BindView
 import butterknife.ButterKnife
 import butterknife.Unbinder
-import com.esoxjem.movieguide.BaseApplication
 import com.esoxjem.movieguide.Movie
 import com.esoxjem.movieguide.R
-import com.esoxjem.movieguide.di.modules.MoviesListingModule
+import dagger.android.support.AndroidSupportInjection
 import java.util.*
 import javax.inject.Inject
 
@@ -34,6 +33,7 @@ class MoviesListingFragment : Fragment(), MoviesListingView {
     private var unbinder: Unbinder? = null
 
     override fun onAttach(context: Context?) {
+        AndroidSupportInjection.inject(this)
         super.onAttach(context)
         callback = context as Callback?
     }
@@ -42,11 +42,6 @@ class MoviesListingFragment : Fragment(), MoviesListingView {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
         retainInstance = true
-        (activity?.application as BaseApplication).appComponent
-                .moviesListingFragmentSubcomponentBuilder()
-                .moviesListingModule(MoviesListingModule())
-                .build()
-                .inject(this)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

@@ -6,8 +6,8 @@ import com.esoxjem.movieguide.di.modules.ActivityBindingModule
 import com.esoxjem.movieguide.di.modules.AppModule
 import com.esoxjem.movieguide.di.modules.NetworkModule
 import dagger.Component
-import dagger.android.AndroidInjectionModule
 import dagger.android.AndroidInjector
+import dagger.android.support.AndroidSupportInjectionModule
 import javax.inject.Singleton
 
 /**
@@ -16,14 +16,10 @@ import javax.inject.Singleton
  */
 @Singleton
 @Component(modules = [
-    AndroidInjectionModule::class,
+    AndroidSupportInjectionModule::class,
     ActivityBindingModule::class,
+    FragmentBindingModule::class,
     AppModule::class,
     NetworkModule::class
 ])
-interface AppComponent : AndroidInjector<BaseApplication> {
-
-    fun moviesListingFragmentSubcomponentBuilder(): MoviesListingFragmentSubcomponent.Builder
-
-    fun movieDetailsFragmentSubcomponentBuilder(): MovieDetailsFragmentSubcomponent.Builder
-}
+interface AppComponent : AndroidInjector<BaseApplication>

@@ -1,6 +1,7 @@
 package com.esoxjem.movieguide.details
 
 
+import android.content.Context
 import android.os.Bundle
 import android.support.design.widget.CollapsingToolbarLayout
 import android.support.design.widget.FloatingActionButton
@@ -18,9 +19,11 @@ import butterknife.ButterKnife
 import butterknife.OnClick
 import butterknife.Unbinder
 import com.bumptech.glide.Glide
-import com.esoxjem.movieguide.*
-import com.esoxjem.movieguide.di.modules.FavoritesModule
-import com.esoxjem.movieguide.di.modules.MovieDetailsModule
+import com.esoxjem.movieguide.Api
+import com.esoxjem.movieguide.Constants
+import com.esoxjem.movieguide.Movie
+import com.esoxjem.movieguide.R
+import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
 
@@ -49,15 +52,14 @@ class MovieDetailsFragment : Fragment(), MovieDetailsView {
     private var movie: Movie? = null
     private var unbinder: Unbinder? = null
 
+    override fun onAttach(context: Context?) {
+        AndroidSupportInjection.inject(this)
+        super.onAttach(context)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         retainInstance = true
-        (activity?.application as BaseApplication).appComponent
-                .movieDetailsFragmentSubcomponentBuilder()
-                .favoritesModule(FavoritesModule())
-                .movieDetailsModule(MovieDetailsModule())
-                .build()
-                .inject(this)
     }
 
 
