@@ -6,7 +6,6 @@ import com.esoxjem.movieguide.di.modules.ActivityBindingModule
 import com.esoxjem.movieguide.di.modules.AppModule
 import com.esoxjem.movieguide.di.modules.FragmentBindingModule
 import com.esoxjem.movieguide.di.modules.NetworkModule
-import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
@@ -24,14 +23,4 @@ import javax.inject.Singleton
     AppModule::class,
     NetworkModule::class
 ])
-interface AppComponent : AndroidInjector<BaseApplication> {
-
-    @Component.Builder
-    interface Builder {
-
-        @BindsInstance
-        fun application(application: BaseApplication): Builder
-
-        fun build(): AppComponent
-    }
-}
+interface AppComponent : AndroidInjector<BaseApplication>
