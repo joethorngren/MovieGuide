@@ -4,8 +4,6 @@ import android.app.Activity
 import android.app.Application
 import com.esoxjem.movieguide.di.AppComponent
 import com.esoxjem.movieguide.di.DaggerAppComponent
-import com.esoxjem.movieguide.di.modules.AppModule
-import com.esoxjem.movieguide.di.modules.NetworkModule
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
@@ -32,8 +30,7 @@ class BaseApplication : Application(), HasActivityInjector {
 
     private fun createAppComponent(): AppComponent {
         return DaggerAppComponent.builder()
-                .appModule(AppModule(this))
-                .networkModule(NetworkModule())
+                .application(this)
                 .build()
     }
 }

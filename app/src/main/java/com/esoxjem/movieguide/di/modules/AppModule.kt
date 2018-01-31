@@ -1,8 +1,8 @@
 package com.esoxjem.movieguide.di.modules
 
-import android.app.Application
 import android.content.Context
 import android.content.res.Resources
+import com.esoxjem.movieguide.BaseApplication
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -12,18 +12,12 @@ import javax.inject.Singleton
  * @author pulkitkumar
  */
 @Module
-class AppModule(application: Application) {
-
-    private val context: Context
-
-    init {
-        context = application
-    }
+class AppModule {
 
     @Provides
     @Singleton
-    fun provideContext(): Context {
-        return context
+    fun provideContext(application: BaseApplication): Context {
+        return application
     }
 
     @Provides
