@@ -1,11 +1,9 @@
 package com.esoxjem.movieguide.details
 
 
-import android.content.Context
 import android.os.Bundle
 import android.support.design.widget.CollapsingToolbarLayout
 import android.support.design.widget.FloatingActionButton
-import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
@@ -23,11 +21,11 @@ import com.esoxjem.movieguide.Api
 import com.esoxjem.movieguide.Constants
 import com.esoxjem.movieguide.Movie
 import com.esoxjem.movieguide.R
-import dagger.android.support.AndroidSupportInjection
+import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
 
-class MovieDetailsFragment : Fragment(), MovieDetailsView {
+class MovieDetailsFragment : DaggerFragment(), MovieDetailsView {
 
     @Inject
     lateinit var movieDetailsPresenter: MovieDetailsPresenter
@@ -51,11 +49,6 @@ class MovieDetailsFragment : Fragment(), MovieDetailsView {
 
     private var movie: Movie? = null
     private var unbinder: Unbinder? = null
-
-    override fun onAttach(context: Context?) {
-        AndroidSupportInjection.inject(this)
-        super.onAttach(context)
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

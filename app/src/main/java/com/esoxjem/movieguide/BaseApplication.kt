@@ -1,39 +1,25 @@
 package com.esoxjem.movieguide
 
-import android.app.Activity
-import android.app.Application
 import com.esoxjem.movieguide.di.AppComponent
 import com.esoxjem.movieguide.di.DaggerAppComponent
 import com.esoxjem.movieguide.di.modules.AppModule
 import com.esoxjem.movieguide.di.modules.NetworkModule
 import dagger.android.AndroidInjector
-import dagger.android.DispatchingAndroidInjector
-import dagger.android.HasActivityInjector
-import javax.inject.Inject
+import dagger.android.support.DaggerApplication
 
 /**
  * @author arun
  */
-class BaseApplication : Application(), HasActivityInjector {
-
-    @Inject lateinit var dispatchingActivityInjector: DispatchingAndroidInjector<Activity>
+class BaseApplication : DaggerApplication() {
 
     lateinit var appComponent: AppComponent
 
-    override fun onCreate() {
-        super.onCreate()
-        appComponent = createAppComponent()
-        appComponent.inject(this)
-    }
-
-    override fun activityInjector(): AndroidInjector<Activity> {
-        return dispatchingActivityInjector
-    }
-
-    private fun createAppComponent(): AppComponent {
-        return DaggerAppComponent.builder()
+    override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
+        appComponent = DaggerAppComponent.builder()
                 .appModule(AppModule(this))
                 .networkModule(NetworkModule())
                 .build()
+
+        return appComponent
     }
 }

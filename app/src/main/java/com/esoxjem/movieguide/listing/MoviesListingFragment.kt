@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.res.Configuration
 import android.os.Bundle
 import android.support.design.widget.Snackbar
-import android.support.v4.app.Fragment
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -16,11 +15,11 @@ import butterknife.ButterKnife
 import butterknife.Unbinder
 import com.esoxjem.movieguide.Movie
 import com.esoxjem.movieguide.R
-import dagger.android.support.AndroidSupportInjection
+import dagger.android.support.DaggerFragment
 import java.util.*
 import javax.inject.Inject
 
-class MoviesListingFragment : Fragment(), MoviesListingView {
+class MoviesListingFragment : DaggerFragment(), MoviesListingView {
 
     @Inject lateinit var moviesPresenter: MoviesListingPresenter
 
@@ -33,7 +32,6 @@ class MoviesListingFragment : Fragment(), MoviesListingView {
     private var unbinder: Unbinder? = null
 
     override fun onAttach(context: Context?) {
-        AndroidSupportInjection.inject(this)
         super.onAttach(context)
         callback = context as Callback?
     }

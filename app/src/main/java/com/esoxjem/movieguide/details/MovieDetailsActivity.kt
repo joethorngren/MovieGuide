@@ -1,25 +1,16 @@
 package com.esoxjem.movieguide.details
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.support.v4.app.NavUtils
-import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import com.esoxjem.movieguide.Constants
 import com.esoxjem.movieguide.Movie
 import com.esoxjem.movieguide.R
-import dagger.android.AndroidInjection
-import dagger.android.AndroidInjector
-import dagger.android.DispatchingAndroidInjector
-import dagger.android.support.HasSupportFragmentInjector
-import javax.inject.Inject
+import dagger.android.support.DaggerAppCompatActivity
 
-class MovieDetailsActivity : AppCompatActivity(), HasSupportFragmentInjector {
-
-    @Inject lateinit var dispatchingFragmentInjector: DispatchingAndroidInjector<Fragment>
+class MovieDetailsActivity : DaggerAppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movie_details)
 
@@ -36,10 +27,6 @@ class MovieDetailsActivity : AppCompatActivity(), HasSupportFragmentInjector {
                 }
             }
         }
-    }
-
-    override fun supportFragmentInjector(): AndroidInjector<Fragment> {
-        return dispatchingFragmentInjector
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
