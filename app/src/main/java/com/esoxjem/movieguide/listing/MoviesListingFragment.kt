@@ -43,9 +43,7 @@ class MoviesListingFragment : Fragment(), MoviesListingView {
         setHasOptionsMenu(true)
         retainInstance = true
         (activity?.application as BaseApplication).appComponent
-                .moviesListingFragmentSubcomponentBuilder()
-                .moviesListingModule(MoviesListingModule())
-                .build()
+                .plus(MoviesListingModule())
                 .inject(this)
     }
 

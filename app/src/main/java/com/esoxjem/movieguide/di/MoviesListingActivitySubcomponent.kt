@@ -1,11 +1,9 @@
 package com.esoxjem.movieguide.di
 
-import com.esoxjem.movieguide.di.scopes.ListingScope
 import com.esoxjem.movieguide.listing.MoviesListingActivity
 import dagger.Subcomponent
 import dagger.android.AndroidInjector
 
-@ListingScope
 @Subcomponent
 interface MoviesListingActivitySubcomponent : AndroidInjector<MoviesListingActivity> {
 

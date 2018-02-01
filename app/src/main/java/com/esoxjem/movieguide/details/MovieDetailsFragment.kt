@@ -19,7 +19,6 @@ import butterknife.OnClick
 import butterknife.Unbinder
 import com.bumptech.glide.Glide
 import com.esoxjem.movieguide.*
-import com.esoxjem.movieguide.di.modules.FavoritesModule
 import com.esoxjem.movieguide.di.modules.MovieDetailsModule
 import javax.inject.Inject
 
@@ -53,10 +52,7 @@ class MovieDetailsFragment : Fragment(), MovieDetailsView {
         super.onCreate(savedInstanceState)
         retainInstance = true
         (activity?.application as BaseApplication).appComponent
-                .movieDetailsFragmentSubcomponentBuilder()
-                .favoritesModule(FavoritesModule())
-                .movieDetailsModule(MovieDetailsModule())
-                .build()
+                .plus(MovieDetailsModule())
                 .inject(this)
     }
 

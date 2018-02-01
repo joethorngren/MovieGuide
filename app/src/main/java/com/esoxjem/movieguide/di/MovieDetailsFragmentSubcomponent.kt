@@ -14,11 +14,4 @@ import dagger.Subcomponent
 interface MovieDetailsFragmentSubcomponent {
 
     fun inject(target: MovieDetailsFragment)
-
-    @Subcomponent.Builder
-    interface Builder {
-        fun movieDetailsModule(movieDetailsModule: MovieDetailsModule): Builder
-        fun favoritesModule(favoritesModule: FavoritesModule): Builder
-        fun build(): MovieDetailsFragmentSubcomponent
-    }
 }
