@@ -2,13 +2,13 @@ package com.esoxjem.movieguide.details
 
 import android.os.Bundle
 import android.support.v4.app.NavUtils
+import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import com.esoxjem.movieguide.Constants
 import com.esoxjem.movieguide.Movie
 import com.esoxjem.movieguide.R
-import dagger.android.support.DaggerAppCompatActivity
 
-class MovieDetailsActivity : DaggerAppCompatActivity() {
+class MovieDetailsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

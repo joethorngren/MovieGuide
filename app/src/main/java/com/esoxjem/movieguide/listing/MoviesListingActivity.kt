@@ -2,6 +2,7 @@ package com.esoxjem.movieguide.listing
 
 import android.content.Intent
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.widget.FrameLayout
 import com.esoxjem.movieguide.Constants
@@ -9,9 +10,8 @@ import com.esoxjem.movieguide.Movie
 import com.esoxjem.movieguide.R
 import com.esoxjem.movieguide.details.MovieDetailsActivity
 import com.esoxjem.movieguide.details.MovieDetailsFragment
-import dagger.android.support.DaggerAppCompatActivity
 
-class MoviesListingActivity : DaggerAppCompatActivity(), MoviesListingFragment.Callback {
+class MoviesListingActivity : AppCompatActivity(), MoviesListingFragment.Callback {
 
     private var twoPaneMode: Boolean = false
 
