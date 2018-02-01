@@ -1,16 +1,11 @@
 package com.esoxjem.movieguide.di.modules
 
 import com.esoxjem.movieguide.details.MovieDetailsActivity
-import com.esoxjem.movieguide.di.MovieDetailsActivitySubcomponent
-import com.esoxjem.movieguide.di.MoviesListingActivitySubcomponent
 import com.esoxjem.movieguide.listing.MoviesListingActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
-@Module(subcomponents = [
-    MovieDetailsActivitySubcomponent::class,
-    MoviesListingActivitySubcomponent::class
-])
+@Module
 abstract class ActivityBindingModule {
 
     @ContributesAndroidInjector
