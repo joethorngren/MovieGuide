@@ -15,7 +15,7 @@ import com.esoxjem.movieguide.di.modules.NetworkModule
  */
 class BaseApplication : Application() {
 
-    private var appComponent: AppComponent? = null
+    private lateinit var appComponent: AppComponent
     private var movieDetailsFragmentSubcomponent: MovieDetailsFragmentSubcomponent? = null
     private var moviesListingFragmentSubcomponent: MoviesListingFragmentSubcomponent? = null
 
@@ -31,15 +31,17 @@ class BaseApplication : Application() {
                 .build()
     }
 
-    fun createDetailsComponent(): MovieDetailsFragmentSubcomponent = appComponent!!.plus(
-        MovieDetailsModule())
+    fun createDetailsComponent(): MovieDetailsFragmentSubcomponent {
+        return appComponent.plus(MovieDetailsModule())
+    }
 
     fun releaseDetailsComponent() {
         movieDetailsFragmentSubcomponent = null
     }
 
-    fun createListingComponent(): MoviesListingFragmentSubcomponent = appComponent!!.plus(
-        MoviesListingModule())
+    fun createListingComponent(): MoviesListingFragmentSubcomponent {
+        return appComponent.plus(MoviesListingModule())
+    }
 
     fun releaseListingComponent() {
         moviesListingFragmentSubcomponent = null
