@@ -1,17 +1,12 @@
 package com.esoxjem.movieguide.favorites
 
 
-import android.content.Context
 import android.content.SharedPreferences
 import android.text.TextUtils
-
 import com.esoxjem.movieguide.Movie
-import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Moshi
-
 import java.io.IOException
-import java.util.ArrayList
-
+import java.util.*
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -19,9 +14,7 @@ import javax.inject.Singleton
  * @author arun
  */
 @Singleton
-class FavoritesStore @Inject constructor(context: Context) {
-
-    private val pref: SharedPreferences
+class FavoritesStore @Inject constructor(private val pref: SharedPreferences) {
 
     // Do nothing;
     val favorites: List<Movie>
@@ -45,11 +38,6 @@ class FavoritesStore @Inject constructor(context: Context) {
             return movies
         }
 
-    init {
-        pref = context.applicationContext
-                .getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
-    }
-
     fun setFavorite(movie: Movie?) {
         val editor = pref.edit()
         val moshi = Moshi.Builder().build()
@@ -69,11 +57,6 @@ class FavoritesStore @Inject constructor(context: Context) {
         val editor = pref.edit()
         editor.remove(id)
         editor.apply()
-    }
-
-    companion object {
-
-        private val PREF_NAME = "FavoritesStore"
     }
 }
 

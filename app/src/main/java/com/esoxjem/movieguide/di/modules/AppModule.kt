@@ -2,7 +2,7 @@ package com.esoxjem.movieguide.di.modules
 
 import android.app.Application
 import android.content.Context
-import android.content.res.Resources
+import android.content.SharedPreferences
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -28,7 +28,11 @@ class AppModule(application: Application) {
 
     @Provides
     @Singleton
-    fun provideResources(context: Context): Resources {
-        return context.resources
+    fun provideSharedPrefs(context: Context): SharedPreferences {
+        return context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
+    }
+
+    companion object {
+        private val PREF_NAME = "FavoritesStore"
     }
 }
